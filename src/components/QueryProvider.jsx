@@ -2,7 +2,7 @@
 import { QueryClient, QueryClientProvider, useQuery } from "@tanstack/react-query";
 const queryClient = new QueryClient()
 
-export default function ListProductsContainer({ children }) {
+export default function QueryProvider({ children }) {
 
     return (
         <QueryClientProvider client={queryClient}>

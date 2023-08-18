@@ -1,4 +1,4 @@
-import ListProductsContainer from "@/components/ListProductContainer";
+import ListProductsContainer from "@/components/QueryProvider";
 import ListProducts from "@/components/ListProducts";
 import NewProduct from "@/components/NewProduct";
 
