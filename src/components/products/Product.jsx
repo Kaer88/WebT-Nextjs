@@ -5,7 +5,6 @@ export default function Product({ productData }) {
             <span>{productData.price} Ft</span>
             <button className="outline outline-slate-700 p-1">Add to cart</button>
             <button className="outline outline-red-600 p-1">Delete</button>
-
         </div>
     )
 }
