@@ -8,7 +8,7 @@ export default function ListProducts() {
         const data = res.json()
         return data
     })
-
+    console.log(data)
     return (
         isLoading ?
             <p>betöltés....</p>

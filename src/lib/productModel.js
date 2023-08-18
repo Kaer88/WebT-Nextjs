@@ -9,3 +9,8 @@ export const createProduct = async ({ name, price }) => {
     const dbRes = await prisma.products.create({ data: { name: name, price: price } })
     return dbRes;
 }
+
+export const deleteProduct = async ({ id }) => {
+    const dbRes = await prisma.products.delete({ where: { id: id } });
+    return dbRes;
+}
