@@ -6,7 +6,7 @@ export const getProducts = async () => {
 }
 
 export const createProduct = async ({ name, price }) => {
-    const dbRes = await prisma.products.create({ data: { name: name, price: price } })
+    const dbRes = await prisma.products.create({ data: { name: name, price: Number(price) } })
     return dbRes;
 }
 
