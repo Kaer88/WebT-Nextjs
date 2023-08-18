@@ -11,12 +11,14 @@ datasource db {
 }
 
 model Products {
-  id String @id @default(uuid())
-  name String 
+  id    String @id @default(uuid())
+  name  String
   price Int
+  Cart  Cart[]
 }
 
 model Cart {
-  id Int @id @default(autoincrement())
-  productId String 
+  id        Int      @id @default(autoincrement())
+  product   Products @relation(fields: [productId], references: [id])
+  productId String
 }
