@@ -1,9 +1,6 @@
 import ListProductsContainer from "@/components/ListProductContainer";
 import ListProducts from "@/components/ListProducts";
 import NewProduct from "@/components/NewProduct";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-
-
 
 export default function Home() {
 

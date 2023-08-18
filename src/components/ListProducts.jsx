@@ -4,14 +4,14 @@ import Product from "./Product";
 
 export default function ListProducts() {
     const { data } = useQuery(["products"], async () => {
-        return fetch("/api/products").then(res => res.json().then(data => {
-            console.log(data)
-            return data
-        }))
-    })
+        const res = await fetch("/api/products")
+        const data = res.json()
+        return data
+        })
+    
     return (
             <div>
-                {data?.map(product => <Product productData={product} />)}
+                {data?.map(product => <Product key={product.id} productData={product} />)}
             </div>
 
     )
