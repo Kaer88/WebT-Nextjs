@@ -8,8 +8,11 @@ export default function Home() {
   return (
     <QueryProvider>
       <main>
-        <section>
-          <Cart />
+        <section className="flex justify-center p-4">
+          <div className="border-slate-600 border-solid border-2 p-4">
+            <h1 className="text-xl">Kosár tartalma</h1>
+            <Cart />
+          </div>
         </section>
         <section className="flex justify-center p-4">
           <div className="border-slate-600 border-solid border-2 p-4">

@@ -1,5 +1,6 @@
 "use client"
 import { useQuery } from "@tanstack/react-query"
+import CartItem from "./CartItem";
 
 export default function Cart() {
     const { data, isLoading } = useQuery({
@@ -9,16 +10,10 @@ export default function Cart() {
             return await res.json();
         }
     })
+    console.log(data)
     return (
         <div>
-            {data?.map(cartItem => (
-                <div key={cartItem.id}>
-                    <span>{cartItem.name}</span>
-                    <span>{cartItem.amount}</span>
-                    <span>{cartItem.price}</span>
-                </div>
-            ))
-            }
+            {data?.map(cartItem => <CartItem key={cartItem.id} item={cartItem}/>)}
         </div>
     )
 
