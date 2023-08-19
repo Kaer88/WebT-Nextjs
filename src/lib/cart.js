@@ -1,12 +1,12 @@
 import { prisma } from "@/db";
 
-export async function addToCart({ productId }) {
+export async function addToCart({ productId, amount }) {
     const dbRes = await prisma.cart.upsert({
         where: {
             productId: productId
         },
         update: {
-            amount: { increment: 1 }
+            amount: { increment: amount }
         },
         create: {
             productId: productId
