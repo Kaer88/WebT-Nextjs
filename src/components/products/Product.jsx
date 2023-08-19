@@ -1,7 +1,29 @@
+import { useMutation, useQueryClient } from "@tanstack/react-query"
 import { useState } from "react"
 
 export default function Product({ productData }) {
-    const [amount, setAmount] = useState()
+    const queryClient = useQueryClient();
+    const [amount, setAmount] = useState(1)
+    const {mutate: addToCart} = useMutation({
+        querykey: ["addtocart"],
+        mutationFn: async () => {
+            const response = await fetch("/api/cart", {
+                method: "POST",
+                headers: {
+                    "Content-type" : "application/json"
+                },
+                body: JSON.stringify({
+                    productId: productData.id,
+                    amount: amount
+                })
+            })
+        },
+        onSuccess: () => {
+            queryClient.invalidateQueries('cart')
+        }
+        
+    })
+    console.log()
     return (
         <div className="grid grid-cols-5 mb-3 gap-4">
             <span>{productData.name}</span>
@@ -9,12 +31,11 @@ export default function Product({ productData }) {
             <input
                 type="number"
                 name="amount"
-                defaultValue={1}
                 value={amount}
                 onChange={(e) => { setAmount(e.target.value) }}
                 className="w-10 text-center"
             />
-            <button className="outline outline-slate-700 p-1">Add to cart</button>
+            <button onClick={addToCart} className="outline outline-slate-700 p-1">Add to cart</button>
             <button className="outline outline-red-600 p-1">Delete</button>
         </div>
     )
