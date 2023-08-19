@@ -6,7 +6,7 @@ export async function addToCart({ productId, amount }) {
             productId: productId
         },
         update: {
-            amount: { increment: amount }
+            amount: { increment: Number(amount) }
         },
         create: {
             productId: productId
@@ -23,7 +23,6 @@ export async function getCart() {
             product: true,
         }
     })
-    console.log(dbCart)
     const properCart = dbCart.map(item => ({
         id: item.id,
         productId: item.productId,
