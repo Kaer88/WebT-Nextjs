@@ -9,7 +9,6 @@ export async function GET(_req) {
 export async function POST(req) {
     const body = await req.json()
     const newProduct = await createProduct(body)
-    console.log("új termék", newProduct)
     return NextResponse.json(newProduct)
 }
 
