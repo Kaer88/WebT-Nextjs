@@ -14,13 +14,14 @@ export default function NewProduct() {
         }
     );
 
-    const { mutate } = useMutation({
+    const { mutate: addProduct } = useMutation({
         mutationKey: ["addProduct"],
         mutationFn: async (newProductData) => {
+
             const res = await fetch("/api/products", {
                 method: "POST",
                 headers: {
-                    "Content-type" : "application/json"
+                    "Content-type": "application/json"
                 },
                 body: JSON.stringify(newProductData),
             })
@@ -40,9 +41,9 @@ export default function NewProduct() {
 
     return (
         <>
-            <input type="text" onChange={inputHandler} value={inputState.name} placeholder="name" name="name"/>
-            <input type="number" onChange={inputHandler} value={inputState.price} placeholder="price" name="price"/>
-            <button onClick={() => mutate(inputState)}>Add product</button>
+            <input type="text" onChange={inputHandler} value={inputState.name} placeholder="name" name="name" />
+            <input type="number" onChange={inputHandler} value={inputState.price} placeholder="price" name="price" />
+            <button onClick={() => addProduct(inputState)}>Add product</button>
         </>
     )
 }
