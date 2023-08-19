@@ -5,4 +5,5 @@
 input {
     outline: black 1px solid;
     border-radius: 7px;
+    padding: 0.2em
 }

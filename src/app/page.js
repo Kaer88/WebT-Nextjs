@@ -10,17 +10,22 @@ export default function Home() {
       <main>
         <section className="flex justify-center p-4">
           <div className="border-slate-600 border-solid border-2 p-4">
-            <h1 className="text-xl">Kosár tartalma</h1>
+            <h1 className="text-xl mb-2">Kosár tartalma</h1>
             <Cart />
           </div>
         </section>
         <section className="flex justify-center p-4">
           <div className="border-slate-600 border-solid border-2 p-4">
-            <h1 className="text-xl">Terméklista</h1>
+            <h1 className="text-xl mb-2">Terméklista</h1>
             <div>
               <ListProducts />
-              <NewProduct />
             </div>
+          </div>
+        </section>
+        <section className="flex justify-center p-4">
+          <div className="border-slate-600 border-solid border-2 p-4">
+            <h1 className="text-xl mb-2">Új termék</h1>
+            <NewProduct />
           </div>
         </section>
       </main>

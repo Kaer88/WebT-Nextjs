@@ -40,10 +40,17 @@ export default function NewProduct() {
     }
 
     return (
-        <>
-            <input type="text" onChange={inputHandler} value={inputState.name} placeholder="name" name="name" />
-            <input type="number" onChange={inputHandler} value={inputState.price} placeholder="price" name="price" />
-            <button onClick={() => addProduct(inputState)}>Add product</button>
-        </>
+        <div className="flex items-center gap-3">
+            <div className="flex flex-col gap-1">
+                <input type="text" onChange={inputHandler} value={inputState.name} placeholder="name" name="name" />
+                <input type="number" onChange={inputHandler} value={inputState.price} placeholder="price" name="price" />
+            </div>
+            <button
+                onClick={() => addProduct(inputState)}
+                className="outline outline-slate-700 p-1"
+            >
+                Add product
+            </button>
+        </div>
     )
 }
