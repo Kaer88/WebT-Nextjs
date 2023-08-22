@@ -3,6 +3,7 @@ import { useQuery } from "@tanstack/react-query"
 import CartItem from "./CartItem";
 import { useContext, useEffect } from "react";
 import { cartContext } from "../contexts/cartContext";
+import CartSummary from "./CartSummary";
 
 export default function Cart() {
 
@@ -24,6 +25,7 @@ export default function Cart() {
                     :
                     <div>
                         {data?.map(cartItem => <CartItem key={cartItem.id} item={cartItem} />)}
+                        <CartSummary total={data.reduce((acc, curr) => acc += curr.price, 0)} />
                     </div>
             }
         </>
