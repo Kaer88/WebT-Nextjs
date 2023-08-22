@@ -12,8 +12,3 @@ export async function POST(req) {
     return NextResponse.json(newProduct)
 }
 
-export async function DELETE(req) {
-    const body = await req.json();
-    const deleteResponse = await deleteProduct(body)
-    return NextResponse.json(deleteResponse)
-}

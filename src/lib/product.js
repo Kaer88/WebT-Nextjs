@@ -10,7 +10,7 @@ export const createProduct = async ({ name, price }) => {
     return dbRes;
 }
 
-export const deleteProduct = async ({ id }) => {
+export const deleteProduct = async (id) => {
     const dbRes = await prisma.products.delete({ where: { id: id } });
     return dbRes;
 }

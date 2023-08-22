@@ -25,6 +25,25 @@ export default function Product({ productData }) {
         }
 
     })
+
+    const {mutate: deleteProduct} = useMutation({
+        queryKey: ["deleteProduct"],
+        mutationFn: async () => {
+            const response = await fetch(`/api/products/${productData.id}`, {
+                method: "DELETE",
+                headers: {
+                    "Content-Type" : "application/json"
+                }
+            })
+            return await response.json();
+        },
+        onSuccess: () => {
+            queryClient.invalidateQueries('products')
+        }
+
+    })
+
+
     return (
         <div className="grid grid-cols-5 mb-3 gap-4">
             <span>{productData.name}</span>
@@ -37,7 +56,7 @@ export default function Product({ productData }) {
                 className="w-10 text-center"
             />
             <button onClick={() => addToCart(amount)} className="outline outline-slate-700 p-1">Add to cart</button>
-            <button className="outline outline-red-600 p-1">Delete</button>
+            <button onClick={deleteProduct} className="outline outline-red-600 p-1">Delete</button>
         </div>
     )
 }
