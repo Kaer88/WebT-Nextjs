@@ -17,12 +17,12 @@ export default function CartIcon() {
     }, [cart])
 
     return (
-        <div className="relative h-16 flex items-center">
-            <div className='flex flex-col'>
+        <div className="relative h-16 flex items-center gap-1">
+            <div className='flex flex-col gap-1'>
                 <CartIndicator amount={indicators?.totalAmount} text="db" />
                 <CartIndicator amount={indicators?.sum} text="Ft" />
             </div>
-            <MdShoppingCart className='relative' size={30} />
+            <MdShoppingCart className='relative' size={30} color='#6f7378'/>
 
         </div>
     )

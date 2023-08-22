@@ -15,7 +15,7 @@ export default function Home() {
           </div>
         </section>
         <section className="flex justify-center p-4">
-          <div className="border-slate-600 border-solid border-2 p-4">
+          <div>
             <h1 className="text-xl mb-2">Terméklista</h1>
             <div>
               <ListProducts />

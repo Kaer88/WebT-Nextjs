@@ -25,7 +25,6 @@ export default function Cart() {
                     <div>
                         {data?.map(cartItem => <CartItem key={cartItem.id} item={cartItem} />)}
                     </div>
-
             }
         </>
     )

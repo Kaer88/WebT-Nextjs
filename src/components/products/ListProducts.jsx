@@ -12,7 +12,7 @@ export default function ListProducts() {
         isLoading ?
             <p>betöltés....</p>
             : (
-                <div>
+                <div className="container border-slate-600 border-solid border-2 p-4">
                     {data?.map(product => <Product key={product.id} productData={product} />)}
                 </div>
             )
