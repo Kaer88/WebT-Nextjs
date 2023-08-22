@@ -18,7 +18,10 @@ export default function NewProduct() {
     const { mutate: addProduct } = useMutation({
         mutationKey: ["addProduct"],
         mutationFn: async (newProductData) => {
-            if (newProductData.name === "" || newProductData.price < 0) alert("Hibás új termék adat!")
+            if (newProductData.name === "" || newProductData.price < 0) {
+                alert("Hibás új termék adat!")
+                return
+            }
             const res = await fetch("/api/products", {
                 method: "POST",
                 headers: {
@@ -48,7 +51,7 @@ export default function NewProduct() {
         <div className="flex items-center gap-3">
             <div className="flex flex-col gap-1">
                 <input type="text" onChange={inputHandler} value={inputState.name} placeholder="name" name="name" />
-                <input type="number" onChange={inputHandler} value={inputState.price} placeholder="price" name="price" />
+                <input type="number" onChange={inputHandler} value={inputState.price} name="price" />
             </div>
             <button
                 onClick={() => addProduct(inputState)}

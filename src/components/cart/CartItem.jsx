@@ -25,7 +25,7 @@ export default function CartItem({ item }) {
             <span>{item.name}</span>
             <span>{item.amount} db</span>
             <span>{item.price} Ft</span>
-            <button onClick={mutate} className="outline outline-slate-700 p-1">{isLoading? "..." : "Delete"}</button>
+            <button onClick={mutate} className="outline outline-slate-700 p-1">{isLoading? "..." : "Remove Item"}</button>
             <input className="w-10" type="number" onChange={(e) => setInputState(e.target.value)} value={inputState} />
         </div>
     )

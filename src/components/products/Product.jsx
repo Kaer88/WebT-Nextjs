@@ -52,7 +52,7 @@ export default function Product({ productData }) {
                 type="number"
                 name="amount"
                 value={amount}
-                onChange={(e) => { setAmount(e.target.value) }}
+                onChange={(e) => { if (e.target.value > 0) setAmount(e.target.value) }}
                 className="w-10 text-center"
             />
             <button onClick={() => addToCart(amount)} className="outline outline-slate-700 p-1">Add to cart</button>

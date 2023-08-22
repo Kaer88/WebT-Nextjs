@@ -9,13 +9,21 @@ export default function ListProducts() {
         return data;
     })
     return (
-        isLoading ?
-            <p>betöltés....</p>
-            : (
-                <div className="container border-slate-600 border-solid border-2 p-4">
-                    {data?.map(product => <Product key={product.id} productData={product} />)}
-                </div>
-            )
+        <div className="container border-slate-600 border-solid border-2 p-4">
+            {
+                isLoading ?
+                    <p>betöltés....</p>
+                    :
+                    <>
+                        {data?.length === 0 && "Nincs termék az adatbázisban"}
+                        {data?.map(product => <Product key={product.id} productData={product} />)}
+                    </>
+
+            }
+
+
+        </div>
+
 
     )
 }
