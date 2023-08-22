@@ -7,7 +7,7 @@ export default function Product({ productData }) {
     const { mutate: addToCart } = useMutation({
         querykey: ["addtocart"],
         mutationFn: async (amount) => {
-            const response = await fetch("/api/cart", {
+            const response = await fetch("/api/cart/add", {
                 method: "POST",
                 headers: {
                     "Content-type": "application/json"
