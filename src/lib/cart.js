@@ -33,3 +33,27 @@ export async function getCart() {
     )
     return properCart;
 }
+
+export async function removeCartItem(id, amount) {
+    const currentCartItem = await prisma.cart.findFirst({
+        where: {
+            id: Number(id)
+        }
+    })
+
+    if (Number(currentCartItem.amount) - Number(amount) > 0) {
+        const dbRes = await prisma.cart.update({
+            where: {
+                id: Number(id)
+            },
+            data: {
+                amount: currentCartItem.amount - amount
+            }
+        })
+        return dbRes;
+
+    } else {
+        const dbRes = await prisma.cart.delete({ where: { id: Number(id) } })
+        return dbRes;
+    }
+}
