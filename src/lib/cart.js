@@ -13,7 +13,6 @@ export async function addToCart({ productId, amount }) {
             amount: Number(amount)
         }
     })
-    // const dbRes = await prisma.cart.create({ data: { productId: productId } });
     return dbRes;
 }
 
