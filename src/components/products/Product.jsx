@@ -4,14 +4,13 @@ import { useState } from "react"
 export default function Product({ productData }) {
     const queryClient = useQueryClient();
     const [amount, setAmount] = useState(1)
-    const {mutate: addToCart} = useMutation({
+    const { mutate: addToCart } = useMutation({
         querykey: ["addtocart"],
         mutationFn: async (amount) => {
-            console.log("queryben", amount)
             const response = await fetch("/api/cart", {
                 method: "POST",
                 headers: {
-                    "Content-type" : "application/json"
+                    "Content-type": "application/json"
                 },
                 body: JSON.stringify({
                     productId: productData.id,
@@ -24,9 +23,8 @@ export default function Product({ productData }) {
             queryClient.invalidateQueries('cart');
             setAmount(1);
         }
-        
+
     })
-    console.log(amount)
     return (
         <div className="grid grid-cols-5 mb-3 gap-4">
             <span>{productData.name}</span>

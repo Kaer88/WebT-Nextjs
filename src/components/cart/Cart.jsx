@@ -6,8 +6,8 @@ import { cartContext } from "../contexts/cartContext";
 
 export default function Cart() {
 
-    const { cart, setCart } = useContext(cartContext)
-    const { data, isLoading } = useQuery({
+    const { setCart } = useContext(cartContext)
+    const { data } = useQuery({
         queryKey: ["cart"],
         queryFn: async () => {
             const res = await fetch("/api/cart");

@@ -38,8 +38,6 @@ export default function NewProduct() {
     })
 
     const inputHandler = (e) => {
-    console.log(inputState)
-
         setInputState({
             ...inputState,
             [e.target.name]: e.target.value
