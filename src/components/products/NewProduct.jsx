@@ -14,10 +14,11 @@ export default function NewProduct() {
         }
     );
 
+
     const { mutate: addProduct } = useMutation({
         mutationKey: ["addProduct"],
         mutationFn: async (newProductData) => {
-
+            if (newProductData.name === "" || newProductData.price < 0) alert("Hibás új termék adat!")
             const res = await fetch("/api/products", {
                 method: "POST",
                 headers: {
@@ -29,10 +30,16 @@ export default function NewProduct() {
         },
         onSuccess: async () => {
             queryClient.invalidateQueries('product');
+            setInputState({
+                name: "",
+                price: 0,
+            })
         }
     })
 
     const inputHandler = (e) => {
+    console.log(inputState)
+
         setInputState({
             ...inputState,
             [e.target.name]: e.target.value

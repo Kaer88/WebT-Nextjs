@@ -9,7 +9,8 @@ export async function addToCart({ productId, amount }) {
             amount: { increment: Number(amount) }
         },
         create: {
-            productId: productId
+            productId: productId,
+            amount: Number(amount)
         }
     })
     // const dbRes = await prisma.cart.create({ data: { productId: productId } });
