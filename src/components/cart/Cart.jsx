@@ -25,7 +25,7 @@ export default function Cart() {
                     :
                     <div>
                         {data?.map(cartItem => <CartItem key={cartItem.id} item={cartItem} />)}
-                        <CartSummary total={data.reduce((acc, curr) => acc += curr.price, 0)} />
+                        <CartSummary total={data?.reduce((acc, curr) => acc += curr.price, 0)} />
                     </div>
             }
         </>
