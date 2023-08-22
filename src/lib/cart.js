@@ -40,7 +40,8 @@ export async function removeCartItem(id, amount) {
             id: Number(id)
         }
     })
-
+    if (currentCartItem === null) throw new Error("invalid operation");
+    
     if (Number(currentCartItem.amount) - Number(amount) > 0) {
         const dbRes = await prisma.cart.update({
             where: {

@@ -17,9 +17,20 @@ export default function Cart() {
         }
     })
     return (
-        <div>
-            {data?.map(cartItem => <CartItem key={cartItem.id} item={cartItem} />)}
-        </div>
+        <>
+            {
+                data?.length === 0 ?
+                    <p>Üres a kosarad</p>
+                    :
+                    <div>
+                        {data?.map(cartItem => <CartItem key={cartItem.id} item={cartItem} />)}
+                    </div>
+
+            }
+        </>
     )
+
+
+
 
 }

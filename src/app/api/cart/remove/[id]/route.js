@@ -3,12 +3,14 @@ import { NextResponse } from "next/server";
 
 
 export async function DELETE(req, params) {
-    const { amount } = await req.json();
     try {
+        const { amount } = await req.json();
+
         const response = await removeCartItem(params.params.id, amount);
         return NextResponse.json(response);
-
-    } catch {
-        return NextResponse.json({message: "invalid operation"}).status("500")
+    } catch(err) {
+        console.log(err)
+        return NextResponse.json({message: "fail"})
     }
+    
 }
