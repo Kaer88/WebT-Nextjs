@@ -5,8 +5,8 @@ import Product from "./Product";
 export default function ListProducts() {
     const { data, isLoading } = useQuery(["products"], async () => {
         const res = await fetch("/api/products")
-        const data = res.json()
-        return data
+        const data = await res.json()
+        return data;
     })
     console.log(data)
     return (
